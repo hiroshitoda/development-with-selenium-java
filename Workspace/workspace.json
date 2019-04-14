@@ -42,16 +42,27 @@
   },
   "defaultEnv": "default",
   "projects": [],
-  "name": "wksp-8hnj",
+  "name": "Selenium Java",
   "attributes": {},
   "commands": [
     {
-      "commandLine": "mvn clean test ${current.project.path}",
+      "commandLine": "cd ${current.project.path}\nmvn clean test",
       "name": "Test with browser preview",
       "attributes": {
-        "previewUrl": "http://${server.port.6080}/vnc_auto.html"
+        "goal": "Test",
+        "previewUrl": "${server.novnc}/vnc_auto.html"
+      },
+      "type": "mvn"
+    },
+    {
+      "commandLine": "echo \"^^ browser preview URL is above.\"",
+      "name": "Display browser preview URL",
+      "attributes": {
+        "goal": "Build",
+        "previewUrl": "${server.novnc}/vnc_auto.html"
       },
       "type": "custom"
     }
-  ]
+  ],
+  "links": []
 }
