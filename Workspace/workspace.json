@@ -1,0 +1,57 @@
+{
+  "environments": {
+    "default": {
+      "machines": {
+        "selenium-machine": {
+          "attributes": {
+            "memoryLimitBytes": "2147483648"
+          },
+          "servers": {
+            "novnc": {
+              "attributes": {},
+              "port": "6080",
+              "protocol": "http"
+            },
+            "chromedriver": {
+              "attributes": {},
+              "port": "9515",
+              "protocol": "http"
+            },
+            "codeserver": {
+              "attributes": {},
+              "port": "9876",
+              "protocol": "http"
+            }
+          },
+          "volumes": {},
+          "installers": [
+            "org.eclipse.che.exec",
+            "org.eclipse.che.ls.java",
+            "org.eclipse.che.terminal",
+            "org.eclipse.che.ws-agent"
+          ],
+          "env": {}
+        }
+      },
+      "recipe": {
+        "type": "dockerimage",
+        "content": "hiroshitoda/development-with-selenium-java:latest",
+        "contentType": ""
+      }
+    }
+  },
+  "defaultEnv": "default",
+  "projects": [],
+  "name": "wksp-8hnj",
+  "attributes": {},
+  "commands": [
+    {
+      "commandLine": "mvn clean test ${current.project.path}",
+      "name": "Test with browser preview",
+      "attributes": {
+        "previewUrl": "http://${server.port.6080}/vnc_auto.html"
+      },
+      "type": "custom"
+    }
+  ]
+}

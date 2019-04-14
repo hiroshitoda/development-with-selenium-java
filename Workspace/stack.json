@@ -1,0 +1,84 @@
+{
+  "scope": "general",
+  "description": "Basic Java environment for development with Selenium. This workspace has GUI provided by Fluxbox and noVNC interface.",
+  "creator": "che",
+  "workspaceConfig": {
+    "environments": {
+      "default": {
+        "recipe": {
+          "contentType": "",
+          "type": "dockerimage",
+          "content": "hiroshitoda/development-with-selenium-java:latest"
+        },
+        "machines": {
+          "selenium-machine": {
+            "env": {},
+            "servers": {
+              "novnc": {
+                "protocol": "http",
+                "port": "6080",
+                "attributes": {}
+              },
+              "chromedriver": {
+                "protocol": "http",
+                "port": "9515",
+                "attributes": {}
+              },
+              "codeserver": {
+                "protocol": "http",
+                "port": "9876",
+                "attributes": {}
+              }
+            },
+            "volumes": {},
+            "installers": [
+              "org.eclipse.che.exec",
+              "org.eclipse.che.ls.java",
+              "org.eclipse.che.terminal",
+              "org.eclipse.che.ws-agent"
+            ],
+            "attributes": {
+              "memoryLimitBytes": "2147483648"
+            }
+          }
+        }
+      }
+    },
+    "defaultEnv": "default",
+    "commands": [
+      {
+        "commandLine": "mvn clean test ${current.project.path}",
+        "name": "Test with browser preview",
+        "type": "custom",
+        "attributes": {
+          "previewUrl": "http://${server.port.6080}/vnc_auto.html"
+        }
+      }
+    ],
+    "projects": [],
+    "name": "default",
+    "attributes": {},
+    "links": []
+  },
+  "components": [
+    {
+      "version": "8",
+      "name": "JDK"
+    },
+    {
+      "version": "3",
+      "name": "Maven"
+    },
+    {
+      "version": "3",
+      "name": "Selenium"
+    }
+  ],
+  "tags": [
+    "Java 1.8",
+    "Maven",
+    "Selenium"
+  ],
+  "name": "Selenium Java",
+  "id": "stacka7hv8zg1di3doa7q"
+}
