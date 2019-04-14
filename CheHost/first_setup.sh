@@ -7,5 +7,6 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 apt install docker-compose
 
+mkdir -p /var/lib/che
 cd $(dirname $0)
 docker-compose up
