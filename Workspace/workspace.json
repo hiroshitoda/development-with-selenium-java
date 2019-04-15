@@ -4,7 +4,7 @@
       "machines": {
         "selenium-machine": {
           "attributes": {
-            "memoryLimitBytes": "2147483648"
+            "memoryLimitBytes": "3221225472"
           },
           "servers": {
             "novnc": {
@@ -46,8 +46,8 @@
   "attributes": {},
   "commands": [
     {
-      "commandLine": "cd ${current.project.path}\nmvn clean test",
-      "name": "Test with browser preview",
+      "commandLine": "cd ${current.project.path}\nmvn clean test -B -Dtest=",
+      "name": "Test",
       "attributes": {
         "goal": "Test",
         "previewUrl": "${server.novnc}/vnc_auto.html"

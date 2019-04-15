@@ -9,4 +9,4 @@ if [[ -z ${DST_HOSTNAME} ]]; then
   exit 1
 fi
 
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d ${STACK_JSON} "http://${DST_HOSTNAME}/api/stack"
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d "${STACK_JSON}" "http://${DST_HOSTNAME}/api/stack"

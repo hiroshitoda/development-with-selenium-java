@@ -38,7 +38,7 @@
               "org.eclipse.che.ws-agent"
             ],
             "attributes": {
-              "memoryLimitBytes": "2147483648"
+              "memoryLimitBytes": "3221225472"
             }
           }
         }
@@ -47,9 +47,9 @@
     "defaultEnv": "default",
     "commands": [
       {
-        "commandLine": "cd ${current.project.path}\nmvn clean test",
-        "name": "Test with browser preview",
-        "type": "custom",
+        "commandLine": "cd ${current.project.path}\nmvn clean test -B -Dtest=",
+        "name": "Test",
+        "type": "mvn",
         "attributes": {
           "previewUrl": "${server.novnc}/vnc_auto.html"
         }
