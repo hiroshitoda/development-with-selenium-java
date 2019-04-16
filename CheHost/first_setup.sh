@@ -1,6 +1,7 @@
 #!/bin/bash -xe
 
-CURRENT_DIR=$(dirname $0)
+cd $(dirname $0)
+CURRENT_DIR=$(pwd)
 
 cd /tmp
 apt update
@@ -12,5 +13,4 @@ apt install docker-compose -y
 mkdir -p /var/lib/che
 cd ${CURRENT_DIR}
 echo ${CURRENT_DIR}
-pwd
 docker-compose up
