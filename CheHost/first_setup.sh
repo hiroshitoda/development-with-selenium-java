@@ -12,4 +12,5 @@ apt install docker-compose -y
 mkdir -p /var/lib/che
 cd ${CURRENT_DIR}
 echo ${CURRENT_DIR}
+pwd
 docker-compose up
